@@ -1,0 +1,4 @@
+username=NewUser1
+password= user@123
+username=django
+password= testing@123

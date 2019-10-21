@@ -1,0 +1,17 @@
+{% extends "emailapp/base.html" %}
+{% block content %}
+    <h1 class="mb-3">Email Send By {{ view.kwargs.username }}</h1>
+        {% for mail in email %}
+           <article class="media content-section">
+           <img class="rounded-circle article-img" src="{{ mail.author.profile.image.url }}">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="{% url 'mail-detail' mail.author.username %}">{{ mail.author }}</a>
+                  <small class="text-muted">{{ mail.date_sented|date:"F d,Y"}}</small>
+                </div>
+                <h2><a class="article-title" href="{% url 'mail-detail' mail.pk %}">{{ mail.subject }}</a></h2>
+
+              </div>
+            </article>
+        {% endfor %}
+{% endblock %}

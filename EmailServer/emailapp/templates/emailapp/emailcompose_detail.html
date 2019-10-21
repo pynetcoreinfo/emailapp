@@ -1,0 +1,19 @@
+{% extends "emailapp/base.html" %}
+{% block content %}
+       <article class="media content-section">
+       <img class="rounded-circle article-img" src="{{ object.author.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'mail-detail' object.author.username %}">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_sented|date:"F d,Y"}}</small>
+
+            </div>
+            <h2>{{ object.title }}</h2>
+            <p class="article-content">{{ object.subject }}</p>
+          </div>
+        </article>
+{% endblock %}
+
+
+
+
